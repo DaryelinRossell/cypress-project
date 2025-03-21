@@ -1,0 +1,27 @@
+name: Cypress Tests
+
+on:
+  push:
+    branches:
+      - master  # Cambia a 'master' si tu rama principal se llama así
+  pull_request:
+    branches:
+      - master  # Cambia a 'master' si tu rama principal se llama así
+
+jobs:
+  cypress-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16  # Usa la versión de Node.js que necesites
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests
+        run: npm test
