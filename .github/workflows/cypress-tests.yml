@@ -23,8 +23,17 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Cypress tests
-        run: npm test
-
-        - name: Run Cypress tests on Chrome
+      - name: Run Cypress tests on Chrome
         run: npm test -- --browser chrome
+
+      - name: Run Cypress tests on Firefox
+        run: npm test -- --browser firefox
+
+      - name: Generate test report
+        run: npx cypress run --reporter cypress-mochawesome-reporter
+
+      - name: Upload test report
+        uses: actions/upload-artifact@v3
+        with:
+          name: cypress-report
+          path: cypress/reports/       
