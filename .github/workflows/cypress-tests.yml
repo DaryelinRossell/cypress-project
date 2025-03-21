@@ -33,7 +33,7 @@ jobs:
         run: npx cypress run --reporter cypress-mochawesome-reporter
 
       - name: Upload test report
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v3.1.2
         with:
           name: cypress-report
           path: cypress/reports/       
