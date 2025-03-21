@@ -13,10 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Install Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
           node-version: 16  # Usa la versión de Node.js que necesites
 
@@ -36,4 +36,5 @@ jobs:
         uses: actions/upload-artifact@v3.1.2
         with:
           name: cypress-report
-          path: cypress/reports/       
+          path: cypress/reports/  
+          
